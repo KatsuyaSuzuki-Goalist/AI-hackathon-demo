@@ -424,6 +424,7 @@ const LinePlot = () => {
     },
   };
 
+  // @ts-ignore
   return <Line {...config} />;
 };
 
