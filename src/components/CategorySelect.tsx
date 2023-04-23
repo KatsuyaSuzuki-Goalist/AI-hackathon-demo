@@ -1,18 +1,17 @@
 import { Select } from '@mantine/core';
 
-function CategorySelect() {
+function CategorySelect(props: CateforySelectProps) {
   return (
     <Select
-      // label="Your favorite framework/library"
-      // placeholder="Pick one"
-      data={[
-        { value: 'react', label: 'React' },
-        { value: 'ng', label: 'Angular' },
-        { value: 'svelte', label: 'Svelte' },
-        { value: 'vue', label: 'Vue' },
-      ]}
+      data={props.data}
+      disabled={props.isDisable}
     />
   );
+}
+
+type CateforySelectProps = {
+  data: { value: string, label: string }[]
+  isDisable: boolean
 }
 
 export default CategorySelect
