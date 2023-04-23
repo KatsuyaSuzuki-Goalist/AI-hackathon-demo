@@ -6,6 +6,7 @@ function FreeWord() {
       // label="Your favorite framework/library"
       // placeholder="Pick one"
       data={['React', 'Angular', 'Svelte', 'Vue']}
+      disabled
     />
   );
 }
