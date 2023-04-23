@@ -15,9 +15,9 @@ const Nav = () => {
         </div>
         <div className='w-2/5 ml-7'>
           <div className='flex justify-between items-center h-12'>
-            <input type="text" placeholder='エリア(東京都、品川区など）' className='h-8 px-2 rounded border text-sm' />
+            <input type="text" placeholder='エリア(東京都、品川区など）' className='h-8 px-2 rounded border text-sm' disabled />
             <p className='text-[#aaa]'>✖︎</p>
-            <input type="text" placeholder='職種(フード、事務など）' className='h-8 px-2 rounded border text-sm' />
+            <input type="text" placeholder='職種(フード、事務など）' className='h-8 px-2 rounded border text-sm' disabled />
             <button className='text-white rounded py-1.5 px-3 bg-[#12a5cc] border-[#009aa6]'>実行結果</button>
           </div>
         </div>
