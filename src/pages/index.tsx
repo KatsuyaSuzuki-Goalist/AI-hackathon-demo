@@ -1,6 +1,8 @@
+import Image from 'next/image'
 import Nav from '@/components/Nav'
 import MonthSelect from '@/components/MonthSelect'
 import Tab from '@/components/Tab'
+import LinePlot from '@/components/linePlot'
 
 export default function Home() {
   return (
@@ -48,6 +50,15 @@ export default function Home() {
             </div>
             <div className='flex justify-center mt-8'>
               <button className='text-white w-[12em] text-[1.2em] p-5 rounded bg-[#12a5cc]'>集計実行</button>
+            </div>
+            <div className='py-8'>
+              <div className='flex items-center'>
+                <Image src="/icon_future.png" alt="image" width={30} height={30} />
+                <h3 className='text-3xl my-5 ml-4'>未来予測グラフ</h3>
+              </div>
+              <div className='p-4'>
+                <LinePlot />
+              </div>
             </div>
           </div>
         </div>
