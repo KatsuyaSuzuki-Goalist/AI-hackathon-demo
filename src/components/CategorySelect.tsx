@@ -5,6 +5,7 @@ function CategorySelect(props: CateforySelectProps) {
     <Select
       data={props.data}
       disabled={props.isDisable}
+      defaultValue={props.data[0].value}
     />
   );
 }

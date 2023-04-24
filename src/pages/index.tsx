@@ -41,8 +41,6 @@ export default function Home() {
               <p className=''>集計対象期間</p>
               <div className='flex gap-6 ml-16'>
                 <MonthSelect />
-                <p className='text-black'>〜</p>
-                <MonthSelect />
               </div>
             </div>
             <div>
