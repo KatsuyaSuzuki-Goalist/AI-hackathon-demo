@@ -1,16 +1,16 @@
 import Image from 'next/image';
-import Logo from '../../public/HRog.svg';
+import Logo from '../../public/chart_ai.png';
 
 const Nav = () => {
   return (
     <nav>
       <div className='flex items-center px-3.5 bg-[#f8f8f8] border-b-2 border-b-gray-300'>
-        <div className='m-2.5'>
+        <div className='h-full mx-2.5'>
           <Image
             src={Logo}
             alt="logo"
-            width={120}
-            height={30}
+            width={180}
+            height={70}
           />
         </div>
         <div className='w-2/5 ml-7'>
