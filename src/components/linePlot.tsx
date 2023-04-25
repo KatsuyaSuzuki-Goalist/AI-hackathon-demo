@@ -12,11 +12,46 @@ import foodData from '@/data/food.json'
 import beautyData from '@/data/beauty.json'
 import hotelData from '@/data/hotel.json'
 
-const LinePlot = () => {
+const LinePlot = (props: { value: string }) => {
   const [data, setData] = useState([
     ...itData.data, ...publicData.data, ...serviceData.data,
     ...foodData.data, ...beautyData.data, ...hotelData.data
   ]);
+
+  useEffect(() => {
+    let returnData: {
+      name: string;
+      month: string;
+      value: number;
+    }[] = []
+    switch (props.value) {
+      case '0':
+        returnData = [
+          ...itData.data, ...publicData.data, ...serviceData.data,
+          ...foodData.data, ...beautyData.data, ...hotelData.data
+        ]
+        break;
+      case '1':
+        returnData = [...itData.data]
+        break;
+      case '2':
+        returnData = [...hotelData.data]
+        break;
+      case '3':
+        returnData = [...publicData.data]
+        break;
+      case '4':
+        returnData = [...beautyData.data]
+        break;
+      case '5':
+        returnData = [...serviceData.data]
+        break;
+      case '6':
+        returnData = [...foodData.data]
+        break;
+    }
+    setData(returnData)
+  }, [props.value])
 
   const predictDay = '2023-01'
 

@@ -13,6 +13,7 @@ function MonthSelect() {
       onChange={setValue}
       maw={400}
       type="range"
+      disabled
     />
   );
 }

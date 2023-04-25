@@ -6,6 +6,8 @@ function CategorySelect(props: CateforySelectProps) {
       data={props.data}
       disabled={props.isDisable}
       defaultValue={props.data[0].value}
+      value={props.value}
+      onChange={props.setValue}
     />
   );
 }
@@ -13,6 +15,8 @@ function CategorySelect(props: CateforySelectProps) {
 type CateforySelectProps = {
   data: { value: string, label: string }[]
   isDisable: boolean
+  value: string
+  setValue: (v: string) => void
 }
 
 export default CategorySelect

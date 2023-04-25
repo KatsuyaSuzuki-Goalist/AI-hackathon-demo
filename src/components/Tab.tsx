@@ -12,7 +12,7 @@ const occupation = [
   { value: '6', label: '飲食/フード' },
 ]
 
-function Tab() {
+function Tab(props: { value: string, setValue: (v: string) => void }) {
   return (
     <Tabs variant="outline" defaultValue="3">
       <Tabs.List>
@@ -26,11 +26,11 @@ function Tab() {
       <Tabs.Panel value="3" pt="xs" className='border p-8'>
         <div className="grid grid-cols-3 gap-8">
           <div>職種カテゴリ</div>
-          <div className='col-start-2 col-end-4'><CategorySelect data={occupation} isDisable={false} /></div>
+          <div className='col-start-2 col-end-4'><CategorySelect data={occupation} isDisable={false} value={props.value} setValue={props.setValue} /></div>
           <div>職種フリーワード</div>
           <div className='col-start-2 col-end-4'><FreeWord /></div>
           <div>業種</div>
-          <div className='col-start-2 col-end-4'><CategorySelect data={occupation} isDisable={true} /></div>
+          <div className='col-start-2 col-end-4'><CategorySelect data={occupation} isDisable={true} value={props.value} setValue={props.setValue} /></div>
         </div>
       </Tabs.Panel>
     </Tabs>

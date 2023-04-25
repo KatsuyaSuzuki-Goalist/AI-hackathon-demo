@@ -3,8 +3,23 @@ import Nav from '@/components/Nav'
 import MonthSelect from '@/components/MonthSelect'
 import Tab from '@/components/Tab'
 import LinePlot from '@/components/linePlot'
+import React, { useState, useRef } from 'react';
 
 export default function Home() {
+  const [value, setValue] = useState('0');
+  const [chartValue, setChartValue] = useState('0');
+  const scrollBottomRef = useRef<HTMLDivElement>(null);
+  const changeValue = (v: string) => {
+    setValue(v)
+  }
+  const handleClick = () => {
+    scrollBottomRef?.current?.scrollIntoView({ behavior: "smooth" });
+    setChartValue(value)
+  }
+  const onClear = () => {
+    setValue('0')
+  }
+
   return (
     <main className="min-h-screen bg-[#f8f8f8]">
       <Nav />
@@ -35,7 +50,7 @@ export default function Home() {
                 </svg>
                 <h3 className='text-3xl my-5 ml-4'>フィルタ条件</h3>
               </div>
-              <button className='text-white rounded bg-[#e85b70] py-1.5 px-3'>フィルタ条件をクリア</button>
+              <button className='text-white rounded bg-[#e85b70] py-1.5 px-3' onClick={onClear}>フィルタ条件をクリア</button>
             </div>
             <div className='flex m-6'>
               <p className=''>集計対象期間</p>
@@ -44,18 +59,18 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <Tab />
+              <Tab value={value} setValue={changeValue} />
             </div>
             <div className='flex justify-center mt-8'>
-              <button className='text-white w-[12em] text-[1.2em] p-5 rounded bg-[#12a5cc]'>集計実行</button>
+              <button onClick={handleClick} className='text-white w-[12em] text-[1.2em] p-5 rounded bg-[#12a5cc]'>集計実行</button>
             </div>
             <div className='py-8'>
               <div className='flex items-center'>
                 <Image src="/icon_future.png" alt="image" width={30} height={30} />
                 <h3 className='text-3xl my-5 ml-4'>未来予測グラフ</h3>
               </div>
-              <div className='p-4'>
-                <LinePlot />
+              <div className='p-4' ref={scrollBottomRef}>
+                <LinePlot value={chartValue} />
               </div>
             </div>
           </div>
